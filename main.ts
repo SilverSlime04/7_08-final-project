@@ -269,24 +269,7 @@ function areaVillage () {
         eeeee6666eeeee6666dd66666eeeeeee
         eeeeeeeeeeeeeee666aa66eeeeeeeeee
         `)
-    scene.setTile(14, img`
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        . . . . . . . . . . . . . . . . 
-        `, true)
+    scene.setTile(14, assets.tile`myTile13`, true)
     scene.setTile(13, img`
         d d d d d d d d d d d d d d d d 
         d d d 1 1 d d d d d d d d b d d 
@@ -472,10 +455,10 @@ function areaVillage () {
         f f c c c c c f c f f c c c c f 
         f c c c c c c f f c f f f f c c 
         `, true)
-    createWater()
     createMushroom()
     createBranch()
     createShell()
+    createWater()
 }
 function areaForest () {
     level = 1
@@ -658,6 +641,9 @@ scene.onHitTile(SpriteKind.Player, 10, function (sprite) {
     } else if (level == 3 && game.ask("Go to Village?")) {
         areaVillage()
         spriteMain.setPosition(314, 479)
+    } else if (level == 2 && game.ask("Go to Ocean?")) {
+        areaOcean()
+        spriteMain.setPosition(316, 36)
     }
 })
 function createWater () {
@@ -666,7 +652,7 @@ function createWater () {
         spriteWater.setFlag(SpriteFlag.Invisible, false)
         spriteWater.z = 1
     } else {
-        spriteWater.setFlag(SpriteFlag.AutoDestroy, true)
+        spriteWater.setFlag(SpriteFlag.Invisible, true)
     }
 }
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -881,6 +867,21 @@ scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
     } else if (level == 1 && game.ask("Go to Ocean?")) {
         areaOcean()
         spriteMain.setPosition(23, 289)
+    } else if (level == 3 && game.ask("Go to Forest?")) {
+        areaForest()
+        spriteMain.setPosition(487, 300)
+    }
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.potionMaterial, function (sprite, otherSprite) {
+    otherSprite.destroy()
+    if (level == 0) {
+        game.splash("You collected Fresh Water!")
+    } else if (level == 1) {
+        game.splash("You collected Otherworldly Branch!")
+    } else if (level == 2) {
+        game.splash("You collected Funny Mushroom!")
+    } else if (level == 3) {
+        game.splash("You collected Diamond Seashell!")
     }
 })
 function createMushroom () {
@@ -889,33 +890,15 @@ function createMushroom () {
         spriteMushroom.setFlag(SpriteFlag.Invisible, false)
         spriteMushroom.z = 1
     } else {
-        spriteMushroom.setFlag(SpriteFlag.AutoDestroy, true)
+        spriteMushroom.setFlag(SpriteFlag.Invisible, true)
     }
 }
 let level = 0
+let spriteMain: Sprite = null
 let spriteShell: Sprite = null
 let spriteBranch: Sprite = null
 let spriteMushroom: Sprite = null
 let spriteWater: Sprite = null
-let spriteMain: Sprite = null
-spriteMain = sprites.create(img`
-    . . . . . . f f f f . . . . . . 
-    . . . . f f f 2 2 f f f . . . . 
-    . . . f f f 2 2 2 2 f f f . . . 
-    . . f f f e e e e e e f f f . . 
-    . . f f e 2 2 2 2 2 2 e e f . . 
-    . . f e 2 f f f f f f 2 e f . . 
-    . . f f f f e e e e f f f f . . 
-    . f f e f b f 4 4 f b f e f f . 
-    . f e e 4 1 f d d f 1 4 e e f . 
-    . . f e e d d d d d d e e f . . 
-    . . . f e e 4 4 4 4 e e f . . . 
-    . . e 4 f 2 2 2 2 2 2 f 4 e . . 
-    . . 4 d f 2 2 2 2 2 2 f d 4 . . 
-    . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
-    . . . . . f f f f f f . . . . . 
-    . . . . . f f . . f f . . . . . 
-    `, SpriteKind.Player)
 spriteWater = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -937,20 +920,20 @@ spriteWater = sprites.create(img`
 spriteMushroom = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . . . . . . . . . . 
-    . . . . . . . e e c c . . . . . 
-    . . . . . . e e e e f c . . . . 
-    . . . . . e e e e e e c c . . . 
-    . . . . e e e e e e e e e e . . 
-    . . . . e e e e e e e e e e . . 
-    . . . . . e e e e e e e f c . . 
-    . . . . . . d e e e d c c . . . 
-    . . . . . d d d d d d d . . . . 
+    . . . . . . 1 3 c c . . . . . . 
+    . . . . . 3 3 3 3 f c . . . . . 
+    . . . . 3 3 1 3 3 1 c c . . . . 
+    . . . 3 3 3 3 3 3 3 3 3 1 . . . 
+    . . . 3 1 3 1 3 3 3 1 3 3 . . . 
+    . . . . 3 3 3 3 1 3 3 f c . . . 
+    . . . . . d 3 3 3 d c c . . . . 
     . . . . d d d d d d d . . . . . 
-    . . . . d d d d d d . . . . . . 
-    . . . . d d d d d d . . . . . . 
-    . . . . . d d d d . . . . . . . 
+    . . . d d d d d d d . . . . . . 
+    . . . d d d d d d d . . . . . . 
+    . . . d d d d d d . . . . . . . 
+    . . . . d d d d . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
     `, SpriteKind.potionMaterial)
 spriteBranch = sprites.create(img`
     . . . . . . . . . . . . . . . . 
@@ -992,6 +975,28 @@ spriteWater.setFlag(SpriteFlag.Invisible, true)
 spriteMushroom.setFlag(SpriteFlag.Invisible, true)
 spriteBranch.setFlag(SpriteFlag.Invisible, true)
 spriteShell.setFlag(SpriteFlag.Invisible, true)
+spriteWater.setPosition(0, 0)
+spriteMushroom.setPosition(0, 0)
+spriteShell.setPosition(0, 0)
+spriteBranch.setPosition(0, 0)
+spriteMain = sprites.create(img`
+    . . . . . . f f f f . . . . . . 
+    . . . . f f f 2 2 f f f . . . . 
+    . . . f f f 2 2 2 2 f f f . . . 
+    . . f f f e e e e e e f f f . . 
+    . . f f e 2 2 2 2 2 2 e e f . . 
+    . . f e 2 f f f f f f 2 e f . . 
+    . . f f f f e e e e f f f f . . 
+    . f f e f b f 4 4 f b f e f f . 
+    . f e e 4 1 f d d f 1 4 e e f . 
+    . . f e e d d d d d d e e f . . 
+    . . . f e e 4 4 4 4 e e f . . . 
+    . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+    . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+    . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+    . . . . . f f f f f f . . . . . 
+    . . . . . f f . . f f . . . . . 
+    `, SpriteKind.Player)
 spriteMain.setPosition(80, 60)
 spriteMain.z = 2
 scene.cameraFollowSprite(spriteMain)
