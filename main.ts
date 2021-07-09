@@ -44,13 +44,13 @@ function areaBeginning () {
     scene.setBackgroundColor(13)
     scene.setTileMap(img`
         7 7 7 7 7 7 7 7 7 7 7 7 5 7 e 7 
-        7 7 7 3 2 8 7 b 7 e 7 e 7 7 7 e 
-        7 e 7 1 4 1 7 7 7 7 7 5 7 5 7 7 
-        b 7 7 7 d 7 7 7 7 7 7 7 7 7 7 5 
-        7 e 7 7 d d e 7 7 5 7 e 7 7 7 7 
-        7 7 e 7 d d 7 b 7 7 7 5 7 7 5 7 
-        7 7 7 d d d 7 7 7 5 7 7 5 7 7 5 
-        7 7 7 d d d d 7 7 7 5 7 b 7 5 7 
+        7 7 7 3 2 8 7 b 7 e 7 e 7 f f e 
+        7 e 7 1 4 1 7 7 7 7 7 f f f f 7 
+        b 7 7 7 d 7 7 7 7 f f f f f f f 
+        7 e 7 7 d d e 7 f f f f f f f f 
+        7 7 e 7 d d 7 b f f f f f f f f 
+        7 7 7 d d d 7 7 7 f f f f f f 5 
+        7 7 7 d d d d 7 7 7 f f f f f 7 
         7 e 7 d d d d d d 7 7 7 7 7 7 7 
         b 7 7 d d 7 d d d d d 7 7 7 e 5 
         5 7 7 d d 7 7 7 d d d d d 7 7 e 
@@ -186,11 +186,114 @@ function areaBeginning () {
         d d d d d d d d d d d d d d d d 
         d d d d d d d d d d d d d d b d 
         `, true)
-    scene.setTile(2, assets.tile`myTile7`, true)
-    scene.setTile(1, assets.tile`myTile2`, true)
-    scene.setTile(3, assets.tile`myTile5`, true)
-    scene.setTile(8, assets.tile`myTile6`, true)
-    scene.setTile(4, assets.tile`myTile3`, true)
+    scene.setTile(2, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
+    scene.setTile(1, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
+    scene.setTile(3, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
+    scene.setTile(8, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
+    scene.setTile(4, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
+    scene.setTile(15, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
     createMushroom()
     createBranch()
     createShell()
@@ -232,7 +335,24 @@ function areaVillage () {
         eeeee6666eeeee6666dd66666eeeeeee
         eeeeeeeeeeeeeee666aa66eeeeeeeeee
         `)
-    scene.setTile(14, assets.tile`myTile13`, true)
+    scene.setTile(14, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
     scene.setTile(13, img`
         d d d d d d d d d d d d d d d d 
         d d d 1 1 d d d d d d d d b d d 
@@ -269,11 +389,96 @@ function areaVillage () {
         6 6 6 6 6 6 6 6 6 6 6 6 6 6 6 7 
         6 6 7 6 6 6 6 6 6 6 6 6 6 6 6 7 
         `, false)
-    scene.setTile(2, assets.tile`myTile7`, true)
-    scene.setTile(1, assets.tile`myTile2`, true)
-    scene.setTile(3, assets.tile`myTile15`, true)
-    scene.setTile(5, assets.tile`myTile14`, true)
-    scene.setTile(4, assets.tile`myTile3`, true)
+    scene.setTile(2, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
+    scene.setTile(1, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
+    scene.setTile(3, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
+    scene.setTile(5, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
+    scene.setTile(4, img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, true)
     scene.setTile(10, img`
         d d d d d d d d d d d d d d d d 
         d d d 1 1 d d d d d d d d b d d 
@@ -604,6 +809,14 @@ scene.onHitTile(SpriteKind.Player, 10, function (sprite) {
         spriteMain.setPosition(314, 479)
     }
 })
+function createWater () {
+    if (level == 0) {
+        spriteWater.setFlag(SpriteFlag.Invisible, false)
+        spriteWater.z = 1
+    } else {
+        spriteWater.setFlag(SpriteFlag.AutoDestroy, true)
+    }
+}
 controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     controller.moveSprite(spriteMain, 200, 200)
     animation.runImageAnimation(
@@ -818,8 +1031,8 @@ scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
     }
 })
 function createMushroom () {
-    if (level == 0) {
-        scene.placeOnRandomTile(spriteMushroom, 5)
+    if (level == 2) {
+        scene.placeOnRandomTile(spriteMushroom, 6)
         spriteMushroom.setFlag(SpriteFlag.Invisible, false)
         spriteMushroom.z = 1
     } else {
@@ -830,6 +1043,7 @@ let level = 0
 let spriteShell: Sprite = null
 let spriteBranch: Sprite = null
 let spriteMushroom: Sprite = null
+let spriteWater: Sprite = null
 let spriteMain: Sprite = null
 spriteMain = sprites.create(img`
     . . . . . . f f f f . . . . . . 
@@ -849,6 +1063,24 @@ spriteMain = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
+spriteWater = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . d d . . . . . . . 
+    . . . . . . 8 8 8 8 . . . . . . 
+    . . . . . . 8 8 8 8 . . . . . . 
+    . . . . . . . f f . . . . . . . 
+    . . . . . . . 9 f . . . . . . . 
+    . . . . . . . 9 9 . . . . . . . 
+    . . . . . . 9 9 9 9 . . . . . . 
+    . . . . . 9 9 9 9 9 9 . . . . . 
+    . . . . . 8 8 8 8 8 8 . . . . . 
+    . . . . . 8 8 8 8 8 8 . . . . . 
+    . . . . . 8 8 8 8 8 f . . . . . 
+    . . . . . . 8 f f f . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    `, SpriteKind.potionMaterial)
 spriteMushroom = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
@@ -903,6 +1135,7 @@ spriteShell = sprites.create(img`
     c 8 f f f f f f f 9 9 8 c . . . 
     . c c . f f f c c c c c c . . . 
     `, SpriteKind.potionMaterial)
+spriteWater.setFlag(SpriteFlag.Invisible, true)
 spriteMushroom.setFlag(SpriteFlag.Invisible, true)
 spriteBranch.setFlag(SpriteFlag.Invisible, true)
 spriteShell.setFlag(SpriteFlag.Invisible, true)
