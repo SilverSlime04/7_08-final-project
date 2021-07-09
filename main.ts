@@ -32,48 +32,33 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
 })
 function createBranch () {
     if (level == 1) {
-        spriteBranch = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . 1 1 . . . . . . . . . . . . 
-            . . . 1 1 1 . . . . . . . . . . 
-            . . . . 1 1 1 1 . . . . d d . . 
-            . . . . d d 1 1 1 . . d d d . . 
-            . . d d d d d 1 1 1 d d d . . . 
-            . . d d . . . . 1 1 1 d . . . . 
-            . . . . . . . . . 1 1 1 . . . . 
-            . . . . . . . . . 1 1 1 1 . . . 
-            . . . . . . . . . . 1 1 1 1 . . 
-            . . . . . . . . . . . 1 1 1 1 1 
-            . . . . . . . . . . . 1 1 1 1 1 
-            `, SpriteKind.potionMaterial)
         scene.placeOnRandomTile(spriteBranch, 7)
+        spriteBranch.setFlag(SpriteFlag.Invisible, false)
         spriteBranch.z = 1
+    } else {
+        spriteBranch.setFlag(SpriteFlag.Invisible, true)
     }
 }
 function areaBeginning () {
     level = 0
     scene.setBackgroundColor(13)
     scene.setTileMap(img`
-        7 7 7 7 7 7 7 7 7 7 7 7 5 7 e 5 
+        7 7 7 7 7 7 7 7 7 7 7 7 5 7 e 7 
         7 7 7 3 2 8 7 b 7 e 7 e 7 7 7 e 
         7 e 7 1 4 1 7 7 7 7 7 5 7 5 7 7 
         b 7 7 7 d 7 7 7 7 7 7 7 7 7 7 5 
         7 e 7 7 d d e 7 7 5 7 e 7 7 7 7 
         7 7 e 7 d d 7 b 7 7 7 5 7 7 5 7 
-        7 7 7 d d d 7 7 7 5 7 7 7 7 7 7 
-        7 7 7 d d d d 7 7 7 5 7 b 7 7 7 
+        7 7 7 d d d 7 7 7 5 7 7 5 7 7 5 
+        7 7 7 d d d d 7 7 7 5 7 b 7 5 7 
         7 e 7 d d d d d d 7 7 7 7 7 7 7 
-        7 7 7 d d 7 d d d d d 7 7 7 e 5 
+        b 7 7 d d 7 d d d d d 7 7 7 e 5 
         5 7 7 d d 7 7 7 d d d d d 7 7 e 
-        7 e 7 d d 7 5 7 7 7 d d d d d 9 
-        7 e 7 d d 7 7 5 7 7 7 7 d d d 9 
-        5 7 7 d d d 7 7 7 7 7 5 7 7 7 7 
-        e 7 7 d d d 7 7 7 5 7 7 7 e 7 7 
-        7 e 5 7 a a 7 e 5 7 7 7 e 5 7 7 
+        7 e 7 d d 7 5 7 5 7 d d d d d 9 
+        5 e 7 d d 7 7 5 7 7 7 7 d d d 9 
+        5 7 5 d d d 7 7 7 7 7 5 7 7 5 7 
+        e 5 7 d d d 7 7 b 5 7 7 7 e b 5 
+        b e 5 7 a a 7 e 5 7 7 7 e 5 7 7 
         `)
     scene.setTile(7, img`
         5 7 5 7 7 7 7 7 7 7 7 7 7 7 7 7 
@@ -207,6 +192,8 @@ function areaBeginning () {
     scene.setTile(8, assets.tile`myTile6`, true)
     scene.setTile(4, assets.tile`myTile3`, true)
     createMushroom()
+    createBranch()
+    createShell()
 }
 function areaVillage () {
     level = 2
@@ -431,43 +418,46 @@ function areaVillage () {
         f f c c c c c f c f f c c c c f 
         f c c c c c c f f c f f f f c c 
         `, true)
+    createMushroom()
+    createBranch()
+    createShell()
 }
 function areaForest () {
     level = 1
     scene.setBackgroundColor(13)
     scene.setTileMap(img`
         7777aa77777777eeeeeeeeeeeeeeeeee
-        e7777d77777777ee77eeeeeeeeeeeeee
-        e77d77777777eeee7777eeeeeeeeeeee
-        ee777d7777eeeeeeeee77eeeeeeeeeee
-        eee777777777ee777ee77eeeeeeeeeee
+        e7777d77777777ee77eeeee777eeeeee
+        e77d77777777eeee7777eee77777eeee
+        ee777d7777eeeeeeeee77777e7777eee
+        eee777777777ee777ee7777eee7777ee
         eeee77d77e77777777777eeeeeeeeeee
         eeeed7eeeeeee77777777eeeee7eeeee
         eee777eeeeeeee777777eeeee777eeee
         eee7deeeeeeeeee77eeeeeee77d77eee
-        eeed7eeeeeeeeee7d777eeed777d77ee
+        eeed7eeeeeeeeee7d777777d777d77ee
         eee77eeeeeeeeee77d77d7777ee777ee
-        eee77eeeeeeeee77e777eeeeeeeed7ee
+        eee77eeeeeeeee77e77777eeeeeed7ee
         eeed7eeeeeeeee7deeeeeee777ee77ee
-        eee7d7eeeeeeee7eeeeeee77777e77ee
-        eeee77eee777eedeeeeeee77e7777eee
-        eeeee7d77777777eeeeeee77ee777eee
+        eee7d7eeeeeeee7eeeee7777777e77ee
+        eeee77ee77777edeeeee7777e7777eee
+        eeeee7d77777777eeeeee777ee777eee
         eeeeee7777d7777eeeeeeeeeeeed7eee
-        eeeee777d7777777eeeeeeeeee777d7e
-        eeeee777777eeee7eeee7eeeee77e7d9
-        eeeee777eeeeeee77ee777eeee77ee79
-        eeeee77eeeeeeeee7ee777eeeeeeeeee
-        eeeeee77eeeeeeee77ee7eeeeeeeeeee
-        ee7eeee77eeeee7777777eeeeeeeeeee
-        ee77eee77eeee777e777eeeee777eeee
-        e777e777eeeee77eee77eeee77777eee
-        e777777eeeeee77eee77777777ee77ee
-        e77777eeeeeee7eeeee777777eeee7ee
-        ee77eeeeee7777eeeeeeeeeeeeee77ee
+        eeeee777d7777777eeee77eeee777d7e
+        eeeee777777eeee7eee7777eee77e7d9
+        eeeee777eeeeeee77ee77777ee77ee79
+        eeeee77eeeeeeeee7ee77777eeeeeeee
+        eeeeee77eeeeeeee77ee77eeeeeeeeee
+        ee7eeee77eeeee77777777eeeeeeeeee
+        ee77eee77eeee777e7777eeee777eeee
+        e7777777eeeee77eee77eeee77777eee
+        e777777eeeee777eee77777777ee77ee
+        e77777eeeee777eeeee777777eeee7ee
+        ee77eeeeee7777eeeeee7777eeee77ee
         ee7eeeeeee77eeeeeeeeeeeeeee77eee
         eeeeeeeeee77eeeeeeeeeeeeeee77eee
-        eeeeeeeeee77eeeeeeeeeeeeeeee7eee
-        eeeeeeeeeee7eeeeeeeeeeeeeeeeeeee
+        eeeeeeeeeee7eeeeeeeeeeeeeeee7eee
+        eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
         `)
     scene.setTile(7, img`
         5 7 5 7 7 7 7 7 7 7 7 7 7 7 7 7 
@@ -560,33 +550,20 @@ function areaForest () {
         7 7 5 7 7 7 7 7 7 7 7 7 7 7 7 5 
         `, true)
     spriteMain.setPosition(80, 10)
+    createMushroom()
     createBranch()
+    createShell()
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     game.splash("x = " + Math.trunc(spriteMain.x) + " y = " + Math.trunc(spriteMain.y))
 })
 function createShell () {
     if (level == 3) {
-        spriteShell = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . c c c . . 
-            . . . . . . . . . . c 8 8 c f . 
-            . . . . . . . . . c 8 1 1 9 f f 
-            . . . . . . . . c 8 c c c c 8 f 
-            . . . . . . . c c c c 1 9 c c f 
-            . . . . . . c 8 8 1 1 1 9 9 c f 
-            . . . . . c 8 8 1 1 1 1 9 9 c f 
-            . . . . c 8 c c c c 1 9 9 9 8 f 
-            . . . c c c c 1 1 c 1 9 9 9 8 f 
-            . . c 8 8 1 1 1 1 c c c 9 9 8 f 
-            . c 8 8 1 1 1 1 1 9 9 c 9 8 f f 
-            c 8 8 9 f f f 1 9 9 9 c 8 8 f . 
-            c 8 9 f f f f f 9 9 9 8 8 c . . 
-            c 8 f f f f f f f 9 9 8 c . . . 
-            . c c . f f f c c c c c c . . . 
-            `, SpriteKind.potionMaterial)
         scene.placeOnRandomTile(spriteShell, 5)
+        spriteShell.setFlag(SpriteFlag.Invisible, false)
         spriteShell.z = 1
+    } else {
+        spriteShell.setFlag(SpriteFlag.Invisible, true)
     }
 }
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -798,6 +775,8 @@ function areaOcean () {
         d d d d d d d d d d d d d d d d 
         d d d d d d d d d d d d d d b d 
         `, true)
+    createMushroom()
+    createBranch()
     createShell()
 }
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -840,32 +819,17 @@ scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
 })
 function createMushroom () {
     if (level == 0) {
-        spriteMushroom = sprites.create(img`
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . . . . . . . . . . 
-            . . . . . . . e e c c . . . . . 
-            . . . . . . e e e e f c . . . . 
-            . . . . . e e e e e e c c . . . 
-            . . . . e e e e e e e e e e . . 
-            . . . . e e e e e e e e e e . . 
-            . . . . . e e e e e e e f c . . 
-            . . . . . . d e e e d c c . . . 
-            . . . . . d d d d d d d . . . . 
-            . . . . d d d d d d d . . . . . 
-            . . . . d d d d d d . . . . . . 
-            . . . . d d d d d d . . . . . . 
-            . . . . . d d d d . . . . . . . 
-            `, SpriteKind.potionMaterial)
         scene.placeOnRandomTile(spriteMushroom, 5)
+        spriteMushroom.setFlag(SpriteFlag.Invisible, false)
         spriteMushroom.z = 1
+    } else {
+        spriteMushroom.setFlag(SpriteFlag.AutoDestroy, true)
     }
 }
-let spriteMushroom: Sprite = null
+let level = 0
 let spriteShell: Sprite = null
 let spriteBranch: Sprite = null
-let level = 0
+let spriteMushroom: Sprite = null
 let spriteMain: Sprite = null
 spriteMain = sprites.create(img`
     . . . . . . f f f f . . . . . . 
@@ -885,6 +849,63 @@ spriteMain = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
+spriteMushroom = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . e e c c . . . . . 
+    . . . . . . e e e e f c . . . . 
+    . . . . . e e e e e e c c . . . 
+    . . . . e e e e e e e e e e . . 
+    . . . . e e e e e e e e e e . . 
+    . . . . . e e e e e e e f c . . 
+    . . . . . . d e e e d c c . . . 
+    . . . . . d d d d d d d . . . . 
+    . . . . d d d d d d d . . . . . 
+    . . . . d d d d d d . . . . . . 
+    . . . . d d d d d d . . . . . . 
+    . . . . . d d d d . . . . . . . 
+    `, SpriteKind.potionMaterial)
+spriteBranch = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . . . . . . 
+    . . 1 1 . . . . . . . . . . . . 
+    . . . 1 1 1 . . . . . . . . . . 
+    . . . . 1 1 1 1 . . . . d d . . 
+    . . . . d d 1 1 1 . . d d d . . 
+    . . d d d d d 1 1 1 d d d . . . 
+    . . d d . . . . 1 1 1 d . . . . 
+    . . . . . . . . . 1 1 1 . . . . 
+    . . . . . . . . . 1 1 1 1 . . . 
+    . . . . . . . . . . 1 1 1 1 . . 
+    . . . . . . . . . . . 1 1 1 1 1 
+    . . . . . . . . . . . 1 1 1 1 1 
+    `, SpriteKind.potionMaterial)
+spriteShell = sprites.create(img`
+    . . . . . . . . . . . . . . . . 
+    . . . . . . . . . . . c c c . . 
+    . . . . . . . . . . c 8 8 c f . 
+    . . . . . . . . . c 8 1 1 9 f f 
+    . . . . . . . . c 8 c c c c 8 f 
+    . . . . . . . c c c c 1 9 c c f 
+    . . . . . . c 8 8 1 1 1 9 9 c f 
+    . . . . . c 8 8 1 1 1 1 9 9 c f 
+    . . . . c 8 c c c c 1 9 9 9 8 f 
+    . . . c c c c 1 1 c 1 9 9 9 8 f 
+    . . c 8 8 1 1 1 1 c c c 9 9 8 f 
+    . c 8 8 1 1 1 1 1 9 9 c 9 8 f f 
+    c 8 8 9 f f f 1 9 9 9 c 8 8 f . 
+    c 8 9 f f f f f 9 9 9 8 8 c . . 
+    c 8 f f f f f f f 9 9 8 c . . . 
+    . c c . f f f c c c c c c . . . 
+    `, SpriteKind.potionMaterial)
+spriteMushroom.setFlag(SpriteFlag.Invisible, true)
+spriteBranch.setFlag(SpriteFlag.Invisible, true)
+spriteShell.setFlag(SpriteFlag.Invisible, true)
 spriteMain.setPosition(80, 60)
 spriteMain.z = 2
 scene.cameraFollowSprite(spriteMain)
