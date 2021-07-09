@@ -1,0 +1,12 @@
+{
+    "UivPUpkr7j": {
+        "data": "hwQQABAAAADh7u7u7u7u7k5ERERERERETkRERERERETu7u7u7u7u7k7k/05ERERETu7/TkRERETu/v/u7u7u7k7+/05ERERETv7/TkRERETu/v/u7u7u7k7u/05ERERETuT/TkRERETu7u7+/+/u7k5ERPTdT0RETkRE9N1PRETh7u7+7u/u7g==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Door"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
