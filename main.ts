@@ -3,6 +3,7 @@ namespace SpriteKind {
     export const Door = SpriteKind.create()
     export const Narrator = SpriteKind.create()
     export const potionMaterial = SpriteKind.create()
+    export const spriteFinalPotion = SpriteKind.create()
 }
 controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     controller.moveSprite(spriteMain, 200, 200)
@@ -646,6 +647,9 @@ scene.onHitTile(SpriteKind.Player, 10, function (sprite) {
         spriteMain.setPosition(316, 36)
     }
 })
+info.onCountdownEnd(function () {
+	
+})
 function createWater () {
     if (level == 0) {
         scene.placeOnRandomTile(spriteWater, 15)
@@ -680,6 +684,10 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     200,
     true
     )
+})
+sprites.onOverlap(SpriteKind.Player, SpriteKind.spriteFinalPotion, function (sprite, otherSprite) {
+    game.splash("You made a potion of your dream!")
+    game.over(true)
 })
 function areaOcean () {
     level = 3
@@ -872,8 +880,39 @@ scene.onHitTile(SpriteKind.Player, 9, function (sprite) {
         spriteMain.setPosition(487, 300)
     }
 })
+scene.onHitTile(SpriteKind.Player, 4, function (sprite) {
+    if (countMaterials == 4) {
+        if (level == 2 && game.ask("Make Potion?")) {
+            spritePotion = sprites.create(img`
+                . . . . 2 . 2 . 2 . . . 2 . . . 
+                . . . 2 . . 2 . . . 2 . . . . . 
+                . . . . 2 . . 2 . 2 . 2 . . . . 
+                . . . . . . 2 . . . 2 . . . . . 
+                . . . f 9 f f f f f f f f . . . 
+                . . . f f f f f f f f f f . . . 
+                . . . . 6 6 6 6 6 6 6 6 . . . . 
+                . . . . f f f f f f f f . . . . 
+                . . . f f 9 f f f f f f f . . . 
+                . . . f 9 f f f f f f f f . . . 
+                . . . f 9 f f f f f f f f . . . 
+                . . . f f f f f f f f f f . . . 
+                . . . f f f f f f f f f f . . . 
+                . . . f f f f f f f f f 6 . . . 
+                . . . f f f f f f f f f 6 . . . 
+                . . . . f 6 6 6 6 6 6 6 . . . . 
+                `, SpriteKind.spriteFinalPotion)
+            spritePotion.setPosition(323, 336)
+            game.splash("Go to the church to collect your potion!")
+        } else if (level != 2) {
+            game.splash("You can't make a potion here")
+        }
+    } else {
+        game.splash("You haven't collected enough materials!")
+    }
+})
 sprites.onOverlap(SpriteKind.Player, SpriteKind.potionMaterial, function (sprite, otherSprite) {
     otherSprite.destroy()
+    countMaterials += 1
     if (level == 0) {
         game.splash("You collected Fresh Water!")
     } else if (level == 1) {
@@ -893,12 +932,15 @@ function createMushroom () {
         spriteMushroom.setFlag(SpriteFlag.Invisible, true)
     }
 }
+let spritePotion: Sprite = null
 let level = 0
 let spriteMain: Sprite = null
 let spriteShell: Sprite = null
 let spriteBranch: Sprite = null
 let spriteMushroom: Sprite = null
 let spriteWater: Sprite = null
+let countMaterials = 0
+countMaterials = 4
 spriteWater = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . . . . . . . . . 
