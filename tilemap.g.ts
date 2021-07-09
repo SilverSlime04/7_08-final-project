@@ -9,8 +9,6 @@ namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
     export const tile3 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile6 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
     export const tile10 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile11 = image.ofBuffer(hex``);
@@ -25,17 +23,19 @@ namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
     export const tile9 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile4 = image.ofBuffer(hex``);
+    export const tile8 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile7 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile8 = image.ofBuffer(hex``);
+    export const tile6 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile4 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile15 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile17 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile16 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile15 = image.ofBuffer(hex``);
 
     helpers._registerFactory("tilemap", function(name: string) {
         switch(helpers.stringTrim(name)) {
@@ -122,8 +122,6 @@ namespace myTiles {
             case "tile1":return tile1;
             case "myTile1":
             case "tile3":return tile3;
-            case "myTile4":
-            case "tile6":return tile6;
             case "myTile8":
             case "tile10":return tile10;
             case "myTile9":
@@ -134,22 +132,24 @@ namespace myTiles {
             case "tile13":return tile13;
             case "myTile12":
             case "tile14":return tile14;
-            case "myTile3":
+            case "Shell Modification":
             case "tile5":return tile5;
-            case "myTile7":
+            case "roofTop":
             case "tile9":return tile9;
-            case "myTile2":
-            case "tile4":return tile4;
-            case "myTile5":
-            case "tile7":return tile7;
-            case "myTile6":
+            case "roofRightGreen":
             case "tile8":return tile8;
-            case "myTile15":
-            case "tile17":return tile17;
-            case "myTile14":
-            case "tile16":return tile16;
-            case "myTile13":
+            case "roofLeftGreen":
+            case "tile7":return tile7;
+            case "myTile4":
+            case "tile6":return tile6;
+            case "houseWalls":
+            case "tile4":return tile4;
+            case "villageTree":
             case "tile15":return tile15;
+            case "roofLeftCyan":
+            case "tile17":return tile17;
+            case "roofRightCyan":
+            case "tile16":return tile16;
         }
         return null;
     })
