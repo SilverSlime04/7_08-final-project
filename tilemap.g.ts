@@ -7,8 +7,6 @@ namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
     export const tile1 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile3 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
     export const tile10 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile11 = image.ofBuffer(hex``);
@@ -21,15 +19,17 @@ namespace myTiles {
     //% fixedInstance jres blockIdentity=images._tile
     export const tile5 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
+    export const tile6 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
+    export const tile3 = image.ofBuffer(hex``);
+    //% fixedInstance jres blockIdentity=images._tile
     export const tile9 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile8 = image.ofBuffer(hex``);
+    export const tile4 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile7 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
-    export const tile6 = image.ofBuffer(hex``);
-    //% fixedInstance jres blockIdentity=images._tile
-    export const tile4 = image.ofBuffer(hex``);
+    export const tile8 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
     export const tile15 = image.ofBuffer(hex``);
     //% fixedInstance jres blockIdentity=images._tile
@@ -120,8 +120,6 @@ namespace myTiles {
             case "tile2":return tile2;
             case "myTile":
             case "tile1":return tile1;
-            case "myTile1":
-            case "tile3":return tile3;
             case "myTile8":
             case "tile10":return tile10;
             case "myTile9":
@@ -134,16 +132,18 @@ namespace myTiles {
             case "tile14":return tile14;
             case "Shell Modification":
             case "tile5":return tile5;
-            case "roofTop":
-            case "tile9":return tile9;
-            case "roofRightGreen":
-            case "tile8":return tile8;
-            case "roofLeftGreen":
-            case "tile7":return tile7;
             case "myTile4":
             case "tile6":return tile6;
+            case "myTile1":
+            case "tile3":return tile3;
+            case "roofTop":
+            case "tile9":return tile9;
             case "houseWalls":
             case "tile4":return tile4;
+            case "roofLeftGreen":
+            case "tile7":return tile7;
+            case "roofRightGreen":
+            case "tile8":return tile8;
             case "villageTree":
             case "tile15":return tile15;
             case "roofLeftCyan":

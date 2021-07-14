@@ -26,8 +26,59 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
         . . 4 4 f 4 4 4 4 4 4 f 4 4 . . 
         . . . . . f f f f f f . . . . . 
         . . . . . f f . . f f . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . f f e e e e f f . . . . 
+        . . . f e e e f f e e e f . . . 
+        . . . f f f f 2 2 f f f f . . . 
+        . . f f e 2 e 2 2 e 2 e f f . . 
+        . . f e 2 f 2 f f f 2 f e f . . 
+        . . f f f 2 f e e 2 2 f f f . . 
+        . . f e 2 f f e e 2 f e e f . . 
+        . f f e f f e e e f e e e f f . 
+        . f f e e e e e e e e e e f f . 
+        . . . f e e e e e e e e f . . . 
+        . . . e f f f f f f f f 4 e . . 
+        . . . 4 f 2 2 2 2 2 e d d 4 . . 
+        . . . e f f f f f f e e 4 . . . 
+        . . . . f f f . . . . . . . . . 
+        `,img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f e e e e f f . . . . 
+        . . . f e e e f f e e e f . . . 
+        . . f f f f f 2 2 f f f f f . . 
+        . . f f e 2 e 2 2 e 2 e f f . . 
+        . . f e 2 f 2 f f 2 f 2 e f . . 
+        . . f f f 2 2 e e 2 2 f f f . . 
+        . f f e f 2 f e e f 2 f e f f . 
+        . f e e f f e e e e f e e e f . 
+        . . f e e e e e e e e e e f . . 
+        . . . f e e e e e e e e f . . . 
+        . . e 4 f f f f f f f f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 4 4 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . f f e e e e f f . . . . 
+        . . . f e e e f f e e e f . . . 
+        . . . f f f f 2 2 f f f f . . . 
+        . . f f e 2 e 2 2 e 2 e f f . . 
+        . . f e f 2 f f f 2 f 2 e f . . 
+        . . f f f 2 2 e e f 2 f f f . . 
+        . . f e e f 2 e e f f 2 e f . . 
+        . f f e e e f e e e f f e f f . 
+        . f f e e e e e e e e e e f f . 
+        . . . f e e e e e e e e f . . . 
+        . . e 4 f f f f f f f f e . . . 
+        . . 4 d d e 2 2 2 2 2 f 4 . . . 
+        . . . 4 e e f f f f f f e . . . 
+        . . . . . . . . . f f f . . . . 
         `],
-    200,
+    150,
     false
     )
 })
@@ -232,14 +283,14 @@ function createBranch () {
 function areaBeginning () {
     level = 0
     scene.setBackgroundColor(13)
-    scene.setTileMap(assets.image`Plains`)
-    scene.setTile(7, assets.image`plainsGrass`, false)
-    scene.setTile(14, assets.image`plainsTree`, true)
-    scene.setTile(11, assets.image`plainsBoulder`, true)
+    scene.setTileMap(assets.image`tilePlains`)
+    scene.setTile(7, assets.image`forestPurple`, false)
+    scene.setTile(14, assets.image`forestTree`, true)
+    scene.setTile(11, assets.tile`myTile1`, true)
     scene.setTile(5, assets.image`plainsFlowers`, false)
-    scene.setTile(13, assets.image`roadMain`, false)
+    scene.setTile(13, assets.image`roadSky`, false)
     scene.setTile(10, assets.image`roadPurple`, true)
-    scene.setTile(9, assets.image`roadSky`, true)
+    scene.setTile(9, assets.image`roadMain`, true)
     scene.setTile(2, assets.tile`roofTop`, true)
     scene.setTile(1, assets.tile`houseWalls`, true)
     scene.setTile(3, assets.tile`roofLeftGreen`, true)
@@ -255,42 +306,9 @@ function areaBeginning () {
 function areaVillage () {
     level = 2
     scene.setBackgroundColor(13)
-    scene.setTileMap(img`
-        eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-        eeeee6666eeeeeeeeeeeeeeeeee66eee
-        eee666666666eeeeeeeeeeeeee6666ee
-        eee63256e6666eeeeeeeeeeee66666ee
-        eee614166666666666eeeeeee63256ee
-        eee66d666666e66666ee6666661416ee
-        ee66dddd66dddddd66666e66666d6eee
-        e6666ee6ddd6666ddd666666e66d6eee
-        e666325e66d6e6325ddd6e66666d6eee
-        e666141e66dd66141d6d666666dd6eee
-        ee666dd66dd666eddd6ddddddddd66ee
-        eee666dddd6e666666e6d6ddd66dd6ee
-        eeee66dd66666666e666d6666666d6ee
-        eeee6dd6e66632566666d666e666d6ee
-        eeee6ddd6e6614166666d6e6666dd6ee
-        66ee6edd6666dd666dddd663256d66ee
-        666666ddd6dddddddd6dd661416d6eee
-        6666e666ddddddddd666ddd6d6dd66ee
-        66666666edd6666b6eeeeeddddd66eee
-        9ddddd666dd6e6676e666edd6666eeee
-        9dddddddddd666fc8e666edd6666eeee
-        66666ddddde666c.ce666eddd666eeee
-        eee66e66dd666fccc86666dddd66eeee
-        eeee6666dddd6cc4cc6666de6dd66eee
-        eee6e6e6ddddd66666666dd666dd6eee
-        ee666666d66ddddddddddd66e66d6eee
-        ee63256dd6e6666ddd66e666666dd6ee
-        ee6141dd66666e66dddd66e6325dd6ee
-        eee6dddd66eee6666ddd6666141dd6ee
-        eee66666eeeeee6e6ddd6e666ddd6eee
-        eeeeeeeeeeeeeee666dd66666666eeee
-        eeeeeeeeeeeeeeee66aa66eeeeeeeeee
-        `)
+    scene.setTileMap(assets.image`tileVillage`)
     scene.setTile(14, assets.tile`villageTree`, true)
-    scene.setTile(13, assets.image`villageRoad`, false)
+    scene.setTile(13, assets.image`roadSky`, false)
     scene.setTile(6, assets.image`villageGrass`, false)
     scene.setTile(2, assets.tile`roofTop`, true)
     scene.setTile(1, assets.tile`houseWalls`, true)
@@ -298,7 +316,7 @@ function areaVillage () {
     scene.setTile(5, assets.tile`roofRightCyan`, true)
     scene.setTile(4, assets.image`houseDoor`, true)
     scene.setTile(10, assets.image`roadPurple`, true)
-    scene.setTile(9, assets.image`roadSky`, true)
+    scene.setTile(9, assets.image`roadMain`, true)
     scene.setTile(12, assets.image`villageChurchWall`, true)
     scene.setTile(0, assets.image`villageChurchWindow`, true)
     scene.setTile(11, assets.image`villageCrossTop`, true)
@@ -313,45 +331,12 @@ function areaVillage () {
 function areaForest () {
     level = 1
     scene.setBackgroundColor(13)
-    scene.setTileMap(img`
-        7777aa77777771eeeeeeeeeeeeeeeeee
-        17777d7777771eeeee1eeeee111eeeee
-        e17d77777711eeeee171111117711eee
-        e1777d7771eeeeeee1777771e17771ee
-        ee117777711111111177711eee111eee
-        ee1177d77777777777771eeeeeeeeeee
-        ee17d7111111117777711eeee111eeee
-        ee17711eeeeee1771111eeee11711eee
-        ee17d1eeeeeee11711eeeee117d711ee
-        ee1d71eeeeeeee17d1111117777d71ee
-        ee1771eeeeeee1177d77d777eee771ee
-        ee1171eeeeeee17711111177eeee71ee
-        eee171eeeeee117d1eeeee17eeee71ee
-        eee1d11eeee11771eeeee17d777771ee
-        eee11711111177d1eeee17777d7771ee
-        eeee11d777777771eeeee111117771ee
-        eeeee17777d777711eeeeeeeee1d71ee
-        eeeee177d77777771eee111eee177d1e
-        eeeee177771111171ee11711ee1777d9
-        eeeee17711eeeee11ee177711ee11119
-        eeeee1711eeeeee1711177711eeeeeee
-        eeeee1171eeeeee171117111eeeeeeee
-        eee1ee171eeeee11777711eeeeeeeeee
-        ee17111771eee17111771eeee1111eee
-        e17777771eeee171e1771111171171ee
-        e1777711eeee171ee1177777711e171e
-        ee77771eeee1771eee17777711ee171e
-        ee1711eeee1771eeee1177111ee1771e
-        eee11eeeee171eeeeeee111eeee177ee
-        eeeeeeeeeee1eeeeeeeeeeeeeee171ee
-        eeeeeeeeeeeeeeeeeeeeeeeeeeee1eee
-        eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-        `)
-    scene.setTile(7, assets.image`forestGrass`, false)
+    scene.setTileMap(assets.image`tileForest`)
+    scene.setTile(7, assets.image`forestPurple`, false)
     scene.setTile(14, assets.image`forestTree`, true)
     scene.setTile(13, assets.image`forestRoad`, false)
     scene.setTile(10, assets.image`forestPurple`, true)
-    scene.setTile(9, assets.image`forestSky`, true)
+    scene.setTile(9, assets.image`forestPurple`, true)
     scene.setTile(1, assets.image`forestMushroomSpawn`, false)
     spriteMain.setPosition(80, 10)
     createWater()
@@ -374,6 +359,32 @@ function createShell () {
         spriteShell.setFlag(SpriteFlag.Invisible, true)
     }
 }
+controller.down.onEvent(ControllerButtonEvent.Released, function () {
+    controller.moveSprite(spriteMain, 100, 100)
+    animation.runImageAnimation(
+    spriteMain,
+    [img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . . f e 2 f f f f f f 2 e f . . 
+        . . f f f f e e e e f f f f . . 
+        . f f e f b f 4 4 f b f e f f . 
+        . f e e 4 1 f d d f 1 4 e e f . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e 4 4 4 4 e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `],
+    150,
+    true
+    )
+})
 controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     controller.moveSprite(spriteMain, 100, 100)
     animation.runImageAnimation(
@@ -395,8 +406,59 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . f 5 5 4 f e e f . . . . . 
         . . . . f f f f f f . . . . . . 
         . . . . . . f f f . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . f f f f f f . . . . . . 
+        . . . f 2 f e e e e f f . . . . 
+        . . f 2 2 2 f e e e e f f . . . 
+        . . f e e e e f f e e e f . . . 
+        . f e 2 2 2 2 e e f f f f . . . 
+        . f 2 e f f f f 2 2 2 e f . . . 
+        . f f f e e e f f f f f f f . . 
+        . f e e 4 4 f b e 4 4 e f f . . 
+        . . f e d d f 1 4 d 4 e e f . . 
+        . . . f d d d e e e e e f . . . 
+        . . . f e 4 e d d 4 f . . . . . 
+        . . . f 2 2 e d d e f . . . . . 
+        . . f f 5 5 f e e f f f . . . . 
+        . . f f f f f f f f f f . . . . 
+        . . . f f f . . . f f . . . . . 
+        `,img`
+        . . . . f f f f f f . . . . . . 
+        . . . f 2 f e e e e f f . . . . 
+        . . f 2 2 2 f e e e e f f . . . 
+        . . f e e e e f f e e e f . . . 
+        . f e 2 2 2 2 e e f f f f . . . 
+        . f 2 e f f f f 2 2 2 e f . . . 
+        . f f f e e e f f f f f f f . . 
+        . f e e 4 4 f b e 4 4 e f f . . 
+        . . f e d d f 1 4 d 4 e e f . . 
+        . . . f d d d d 4 e e e f . . . 
+        . . . f e 4 4 4 e e f f . . . . 
+        . . . f 2 2 2 e d d 4 . . . . . 
+        . . . f 2 2 2 e d d e . . . . . 
+        . . . f 5 5 4 f e e f . . . . . 
+        . . . . f f f f f f . . . . . . 
+        . . . . . . f f f . . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . f f f f f f . . . . . . 
+        . . . f 2 f e e e e f f . . . . 
+        . . f 2 2 2 f e e e e f f . . . 
+        . . f e e e e f f e e e f . . . 
+        . f e 2 2 2 2 e e f f f f . . . 
+        . f 2 e f f f f 2 2 2 e f . . . 
+        . f f f e e e f f f f f f f . . 
+        . f e e 4 4 f b e 4 4 e f f . . 
+        . . f e d d f 1 4 d 4 e e f . . 
+        . . . f d d d d 4 e e e f . . . 
+        . . . f e 4 4 4 e d d 4 . . . . 
+        . . . f 2 2 2 2 e d d e . . . . 
+        . . f f 5 5 4 4 f e e f . . . . 
+        . . f f f f f f f f f f . . . . 
+        . . . f f f . . . f f . . . . . 
         `],
-    200,
+    150,
     true
     )
 })
@@ -414,6 +476,58 @@ scene.onHitTile(SpriteKind.Player, 10, function (sprite) {
         areaOcean()
         spriteMain.setPosition(316, 36)
     }
+})
+controller.right.onEvent(ControllerButtonEvent.Released, function () {
+    controller.moveSprite(spriteMain, 100, 100)
+    animation.runImageAnimation(
+    spriteMain,
+    [img`
+        . . . . . . f f f f f f . . . . 
+        . . . . f f e e e e f 2 f . . . 
+        . . . f f e e e e f 2 2 2 f . . 
+        . . . f e e e f f e e e e f . . 
+        . . . f f f f e e 2 2 2 2 e f . 
+        . . . f e 2 2 2 f f f f e 2 f . 
+        . . f f f f f f f e e e f f f . 
+        . . f f e 4 4 e b f 4 4 e e f . 
+        . . f e e 4 d 4 1 f d d e f . . 
+        . . . f e e e 4 d d d d f . . . 
+        . . . . f f e e 4 4 4 e f . . . 
+        . . . . . 4 d d e 2 2 2 f . . . 
+        . . . . . e d d e 2 2 2 f . . . 
+        . . . . . f e e f 4 5 5 f . . . 
+        . . . . . . f f f f f f . . . . 
+        . . . . . . . f f f . . . . . . 
+        `],
+    150,
+    true
+    )
+})
+controller.left.onEvent(ControllerButtonEvent.Released, function () {
+    controller.moveSprite(spriteMain, 100, 100)
+    animation.runImageAnimation(
+    spriteMain,
+    [img`
+        . . . . f f f f f f . . . . . . 
+        . . . f 2 f e e e e f f . . . . 
+        . . f 2 2 2 f e e e e f f . . . 
+        . . f e e e e f f e e e f . . . 
+        . f e 2 2 2 2 e e f f f f . . . 
+        . f 2 e f f f f 2 2 2 e f . . . 
+        . f f f e e e f f f f f f f . . 
+        . f e e 4 4 f b e 4 4 e f f . . 
+        . . f e d d f 1 4 d 4 e e f . . 
+        . . . f d d d d 4 e e e f . . . 
+        . . . f e 4 4 4 e e f f . . . . 
+        . . . f 2 2 2 e d d 4 . . . . . 
+        . . . f 2 2 2 e d d e . . . . . 
+        . . . f 5 5 4 f e e f . . . . . 
+        . . . . f f f f f f . . . . . . 
+        . . . . . . f f f . . . . . . . 
+        `],
+    150,
+    true
+    )
 })
 function createWater () {
     if (level == 0) {
@@ -445,8 +559,59 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
         . . . . . f e e f 4 5 5 f . . . 
         . . . . . . f f f f f f . . . . 
         . . . . . . . f f f . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f f f . . . . 
+        . . . . f f e e e e f 2 f . . . 
+        . . . f f e e e e f 2 2 2 f . . 
+        . . . f e e e f f e e e e f . . 
+        . . . f f f f e e 2 2 2 2 e f . 
+        . . . f e 2 2 2 f f f f e 2 f . 
+        . . f f f f f f f e e e f f f . 
+        . . f f e 4 4 e b f 4 4 e e f . 
+        . . f e e 4 d 4 1 f d d e f . . 
+        . . . f e e e e e d d d f . . . 
+        . . . . . f 4 d d e 4 e f . . . 
+        . . . . . f e d d e 2 2 f . . . 
+        . . . . f f f e e f 5 5 f f . . 
+        . . . . f f f f f f f f f f . . 
+        . . . . . f f . . . f f f . . . 
+        `,img`
+        . . . . . . f f f f f f . . . . 
+        . . . . f f e e e e f 2 f . . . 
+        . . . f f e e e e f 2 2 2 f . . 
+        . . . f e e e f f e e e e f . . 
+        . . . f f f f e e 2 2 2 2 e f . 
+        . . . f e 2 2 2 f f f f e 2 f . 
+        . . f f f f f f f e e e f f f . 
+        . . f f e 4 4 e b f 4 4 e e f . 
+        . . f e e 4 d 4 1 f d d e f . . 
+        . . . f e e e 4 d d d d f . . . 
+        . . . . f f e e 4 4 4 e f . . . 
+        . . . . . 4 d d e 2 2 2 f . . . 
+        . . . . . e d d e 2 2 2 f . . . 
+        . . . . . f e e f 4 5 5 f . . . 
+        . . . . . . f f f f f f . . . . 
+        . . . . . . . f f f . . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f f f . . . . 
+        . . . . f f e e e e f 2 f . . . 
+        . . . f f e e e e f 2 2 2 f . . 
+        . . . f e e e f f e e e e f . . 
+        . . . f f f f e e 2 2 2 2 e f . 
+        . . . f e 2 2 2 f f f f e 2 f . 
+        . . f f f f f f f e e e f f f . 
+        . . f f e 4 4 e b f 4 4 e e f . 
+        . . f e e 4 d 4 1 f d d e f . . 
+        . . . f e e e 4 d d d d f . . . 
+        . . . . 4 d d e 4 4 4 e f . . . 
+        . . . . e d d e 2 2 2 2 f . . . 
+        . . . . f e e f 4 4 5 5 f f . . 
+        . . . . f f f f f f f f f f . . 
+        . . . . . f f . . . f f f . . . 
         `],
-    200,
+    150,
     true
     )
 })
@@ -454,43 +619,36 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.spriteFinalPotion, function (spr
     game.splash("You made a potion of your dream!")
     game.over(true)
 })
+controller.up.onEvent(ControllerButtonEvent.Released, function () {
+    controller.moveSprite(spriteMain, 100, 100)
+    animation.runImageAnimation(
+    spriteMain,
+    [img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f e e e e f f . . . . 
+        . . . f e e e f f e e e f . . . 
+        . . f f f f f 2 2 f f f f f . . 
+        . . f f e 2 e 2 2 e 2 e f f . . 
+        . . f e 2 f 2 f f 2 f 2 e f . . 
+        . . f f f 2 2 e e 2 2 f f f . . 
+        . f f e f 2 f e e f 2 f e f f . 
+        . f e e f f e e e e f e e e f . 
+        . . f e e e e e e e e e e f . . 
+        . . . f e e e e e e e e f . . . 
+        . . e 4 f f f f f f f f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 4 4 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `],
+    150,
+    false
+    )
+})
 function areaOcean () {
     level = 3
     scene.setBackgroundColor(13)
-    scene.setTileMap(img`
-        5555555555555555555aa55555555555
-        55555555755555555555d55557555755
-        55555555555555555555d55557755775
-        55755555ddddddd5555dd55755555575
-        577555ddd55555ddd55d557755555555
-        55555dd555775555dd5d555555d55555
-        55555d55577775555ddd55555dd55755
-        55555d5577555555dddddddddd555555
-        5555dd555555ddddd555555555555588
-        5555d55555ddd5555555555555888888
-        5555d555ddd555555555555588888888
-        5555d55ddddddd555555588888888888
-        5555dddd55555dddd588888888888888
-        5555dd55555555558888888888888888
-        555ddd55575555588888888888888888
-        55dd5555755555888888888888888888
-        55d55555555558888888888888888888
-        55d55555555588888888888888888888
-        9dd55555555888888888888888888888
-        95555555888888888888888888888888
-        55555758888888888888888888888888
-        55555588888888888888888888888888
-        55775588888888888888888888888888
-        55575588888888888888888888888888
-        55555588888888888888888888888888
-        55555588888888888888888888888888
-        57555888888888888888888888888888
-        55555888888888888888888888888888
-        55558888888888888888888888888888
-        55588888888888888888888888888888
-        88888888888888888888888888888888
-        88888888888888888888888888888888
-        `)
+    scene.setTileMap(assets.image`tileOcean`)
     scene.setTile(8, img`
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
         8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 8 
@@ -625,8 +783,59 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
         . . . . . f f f f f f . . . . . 
         . . . . . f f . . f f . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . f f e 2 f f f f f f 2 e f f . 
+        . f f f f f e e e e f f f f f . 
+        . . f e f b f 4 4 f b f e f . . 
+        . . f e 4 1 f d d f 1 4 e f . . 
+        . . . f e 4 d d d d 4 e f e . . 
+        . . f e f 2 2 2 2 e d d 4 e . . 
+        . . e 4 f 2 2 2 2 e d d e . . . 
+        . . . . f 4 4 5 5 f e e . . . . 
+        . . . . f f f f f f f . . . . . 
+        . . . . f f f . . . . . . . . . 
+        `,img`
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f f e 2 2 2 2 2 2 e e f . . 
+        . . f e 2 f f f f f f 2 e f . . 
+        . . f f f f e e e e f f f f . . 
+        . f f e f b f 4 4 f b f e f f . 
+        . f e e 4 1 f d d f 1 4 e e f . 
+        . . f e e d d d d d d e e f . . 
+        . . . f e e 4 4 4 4 e e f . . . 
+        . . e 4 f 2 2 2 2 2 2 f 4 e . . 
+        . . 4 d f 2 2 2 2 2 2 f d 4 . . 
+        . . 4 4 f 4 4 5 5 4 4 f 4 4 . . 
+        . . . . . f f f f f f . . . . . 
+        . . . . . f f . . f f . . . . . 
+        `,img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . f f f f . . . . . . 
+        . . . . f f f 2 2 f f f . . . . 
+        . . . f f f 2 2 2 2 f f f . . . 
+        . . f f f e e e e e e f f f . . 
+        . . f e e 2 2 2 2 2 2 e f f . . 
+        . f f e 2 f f f f f f 2 e f f . 
+        . f f f f f e e e e f f f f f . 
+        . . f e f b f 4 4 f b f e f . . 
+        . . f e 4 1 f d d f 1 4 e f . . 
+        . . e f e 4 d d d d 4 e f . . . 
+        . . e 4 d d e 2 2 2 2 f e f . . 
+        . . . e d d e 2 2 2 2 f 4 e . . 
+        . . . . e e f 5 5 4 4 f . . . . 
+        . . . . . f f f f f f f . . . . 
+        . . . . . . . . . f f f . . . . 
         `],
-    200,
+    150,
     true
     )
 })
@@ -692,7 +901,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.potionMaterial, function (sprite
         if (level == 2) {
             game.splash("Go brew your potion!")
         } else {
-            game.splash("Go to the Village to brew your potion!")
+            game.splash("Go to the Village", "to brew your potion!")
         }
     }
     if (countCountMaterial == 0) {
@@ -720,7 +929,6 @@ let spriteMushroom: Sprite = null
 let spriteWater: Sprite = null
 let countCountMaterial = 0
 let countMaterials = 0
-storyIntro()
 countMaterials = 0
 countCountMaterial = 0
 spriteWater = sprites.create(img`
