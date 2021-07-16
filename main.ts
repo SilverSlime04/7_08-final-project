@@ -901,7 +901,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.potionMaterial, function (sprite
         if (level == 2) {
             game.splash("Go brew your potion!")
         } else {
-            game.splash("Go to the Village", "to brew your potion!")
+            game.splash("Go to the Village's door", "to brew your potion!")
         }
     }
     if (countCountMaterial == 0) {
@@ -929,6 +929,7 @@ let spriteMushroom: Sprite = null
 let spriteWater: Sprite = null
 let countCountMaterial = 0
 let countMaterials = 0
+storyIntro()
 countMaterials = 0
 countCountMaterial = 0
 spriteWater = sprites.create(img`
